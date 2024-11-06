@@ -2,12 +2,14 @@
     {
       "id": "1",
       "title": "Assualt Rifle",
-      "image": "https://static.wikia.nocookie.net/pubgmobile/images/8/88/Icon_M416.png/revision/latest?cb=20180905095227"
+      "image": "https://static.wikia.nocookie.net/pubgmobile/images/8/88/Icon_M416.png/revision/latest?cb=20180905095227",
+      "type": "Assault Rifle"
     },
     {
       "id": "2",
       "title": "Sniper Rifles",
-      "image": "https://static.wikia.nocookie.net/pubgmobile/images/c/ce/AWM.png/revision/latest?cb=20200610050524"
+      "image": "https://static.wikia.nocookie.net/pubgmobile/images/c/ce/AWM.png/revision/latest?cb=20200610050524",
+      "type": "Sniper"
     },
     {
       "id": "3",

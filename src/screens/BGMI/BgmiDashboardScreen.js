@@ -36,84 +36,111 @@ const BgmiDashboard = ({navigation}) => {
       </Text>
     </View>
   );
-  const weaponcard = ({item}) => (
-    <View style={styles.wepcard}>
-      <Image source={{uri: item.image}} style={styles.wepcardImage} />
-      <Text style={styles.wepcardTitle}>{item.title}</Text>
-      
-    </View>
-  );
+  const weaponcard = ({item}) => {
+    const handleNavigation = () => {
+      if (item.type === 'Assault Rifle') {
+        navigation.navigate('AssualtRifles', {weapon: item});
+      } else if (item.type === 'Sniper') {
+        navigation.navigate('Sniper', {weapon: item});
+      } else if (item.type === 'Pistol') {
+        navigation.navigate('Pistol', {weapon: item});
+      }
+
+    };
+    return (
+      <TouchableOpacity onPress={handleNavigation}>
+        <View style={styles.wepcard}>
+          <Image source={{uri: item.image}} style={styles.wepcardImage} />
+          <Text style={styles.wepcardTitle}>{item.title}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  };
   const throwcard = ({item}) => (
     <View style={styles.wepcard}>
       <Image source={{uri: item.image}} style={styles.throwcardImage} />
       <Text style={styles.throwcardTitle}>{item.title}</Text>
-      
     </View>
   );
   return (
-    <ScrollView style={{backgroundColor:"#121212"}}>
+    <ScrollView style={{backgroundColor: '#121212'}}>
       <SafeAreaView style={styles.container}>
-      <View style={styles.searchContainer}>
-        <TouchableOpacity>
-          <Image
-            source={require('../../assets/images/search.png')}
-            style={styles.searchIcon}
+        <View style={styles.searchContainer}>
+          <TouchableOpacity>
+            <Image
+              source={require('../../assets/images/search.png')}
+              style={styles.searchIcon}
+            />
+          </TouchableOpacity>
+          <TextInput
+            style={styles.searchInput}
+            placeholder="Search"
+            placeholderTextColor="#888"
           />
-        </TouchableOpacity>
-        <TextInput
-          style={styles.searchInput}
-          placeholder="Search"
-          placeholderTextColor="#888"
-        />
-      </View>
+        </View>
 
-      <View style={styles.titleContainer}>
-        <Text style={styles.name}>News and </Text>
-        <Text style={styles.nameShaala}>Updates</Text>
-      </View>
+        <View style={styles.titleContainer}>
+          <Text style={styles.name}>News and </Text>
+          <Text style={styles.nameShaala}>Updates</Text>
+        </View>
 
-      <View style={{height: '25%'}}>
-        <FlatList
-          data={newsData}
-          renderItem={newscard}
-          keyExtractor={item => item.id}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.flatListContainer}
-        />
-      </View>
+        <View style={{height: '25%'}}>
+          <FlatList
+            data={newsData}
+            renderItem={newscard}
+            keyExtractor={item => item.id}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.flatListContainer}
+          />
+        </View>
 
-      <View style={styles.weaponsTitleContainer}>
-        <Text style={styles.name}>Weapon</Text>
-        <Text style={styles.nameShaala}>s</Text>
-      </View>
+        <View style={styles.weaponsTitleContainer}>
+          <Text style={styles.name}>Weapon</Text>
+          <Text style={styles.nameShaala}>s</Text>
+        </View>
 
-      <View style={{height: '25%'}}>
-        <FlatList
-          data={weaponData}
-          renderItem={weaponcard}
-          keyExtractor={item => item.id}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.flatListContainer}
-        />
-      </View>
-      <View style={styles.weaponsTitleContainer}>
-        <Text style={styles.name}>Throwable</Text>
-        <Text style={styles.nameShaala}>s</Text>
-      </View>
+        <View style={{height: '25%'}}>
+          <FlatList
+            data={weaponData}
+            renderItem={weaponcard}
+            keyExtractor={item => item.id}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.flatListContainer}
+          />
+        </View>
+        <View style={styles.weaponsTitleContainer}>
+          <Text style={styles.name}>Throwable</Text>
+          <Text style={styles.nameShaala}>s</Text>
+        </View>
 
-      <View style={{height: '25%'}}>
-        <FlatList
-          data={throwData}
-          renderItem={throwcard}
-          keyExtractor={item => item.id}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.flatListContainer}
-        />
-      </View>
-    </SafeAreaView>
+        <View style={{height: '25%'}}>
+          <FlatList
+            data={throwData}
+            renderItem={throwcard}
+            keyExtractor={item => item.id}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.flatListContainer}
+          />
+        </View>
+        <View style={styles.weaponsTitleContainer}>
+          <Text style={styles.name}>Throwable</Text>
+          <Text style={styles.nameShaala}>s</Text>
+        </View>
+
+        <View style={{height: '25%'}}>
+          <FlatList
+            data={throwData}
+            renderItem={throwcard}
+            keyExtractor={item => item.id}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.flatListContainer}
+          />
+        </View>
+      </SafeAreaView>
     </ScrollView>
   );
 };
@@ -166,8 +193,8 @@ const styles = StyleSheet.create({
     height: 180,
   },
   card: {
-    width: 200, 
-    height: 160, 
+    width: 200,
+    height: 160,
     backgroundColor: '#1e1e1e',
     borderRadius: 15,
     padding: 0,
@@ -181,14 +208,14 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     marginTop: 22,
-    fontSize: 14, 
+    fontSize: 14,
     fontWeight: 'bold',
     color: '#fff',
     textAlign: 'center',
   },
   cardDate: {
     marginTop: 0,
-    fontSize: 12, 
+    fontSize: 12,
     color: '#fff',
   },
   dateLabel: {
@@ -196,8 +223,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   wepcard: {
-    width: 140, 
-    height: 170, 
+    width: 140,
+    height: 170,
     backgroundColor: '#1e1e1e',
     borderRadius: 15,
     padding: 0,
@@ -211,14 +238,14 @@ const styles = StyleSheet.create({
   },
   wepcardTitle: {
     marginTop: 22,
-    fontSize: 14, 
+    fontSize: 14,
     fontWeight: 'bold',
     color: '#fff',
     textAlign: 'center',
   },
   throwcard: {
-    width: 140, 
-    height: 170, 
+    width: 140,
+    height: 170,
     backgroundColor: '#1e1e1e',
     borderRadius: 15,
     padding: 0,
@@ -232,12 +259,11 @@ const styles = StyleSheet.create({
   },
   throwcardTitle: {
     marginTop: 0,
-    fontSize: 14, 
+    fontSize: 14,
     fontWeight: 'bold',
     color: '#fff',
     textAlign: 'center',
   },
-  
 });
 
 export default BgmiDashboard;
