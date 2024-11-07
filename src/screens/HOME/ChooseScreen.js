@@ -75,10 +75,10 @@ const ChooseScreen = ({navigation}) => {
               style={{
                 color: '#fa4449',
                 fontFamily: 'Poppins-Regular',
-                fontSize: 36,
+                fontSize: 30,
                 textAlign: 'center',
               }}>
-              VALORANT
+              VALORANT             (Comming Soon)
             </Text>
           </View>
         </TouchableOpacity>

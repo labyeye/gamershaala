@@ -14,17 +14,32 @@ import {
 import data from '../../json/card.json';
 import weapondata from '../../json/weapons.json';
 import throwdata from '../../json/throwables.json';
+import character from '../../json/characters.json';
 
 const BgmiDashboard = ({navigation}) => {
   const [newsData, setNewsData] = useState([]);
   const [weaponData, setWeaponData] = useState([]);
+  const [characterData, setCharacterData] = useState([]);
   const [throwData, setThrowData] = useState([]);
+  const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
     setNewsData(data);
     setWeaponData(weapondata);
+    setCharacterData(character);
     setThrowData(throwdata);
   }, []);
+
+  const filterData = (list, key) =>
+    list.filter(
+      item =>
+        item[key] && item[key].toLowerCase().includes(searchText.toLowerCase()),
+    );
+
+  const filteredNewsData = filterData(newsData, 'title');
+  const filteredWeaponData = filterData(weaponData, 'title');
+  const filteredCharacterData = filterData(characterData, 'title');
+  const filteredThrowData = filterData(throwData, 'title');
 
   const newscard = ({item}) => (
     <View style={styles.card}>
@@ -36,6 +51,28 @@ const BgmiDashboard = ({navigation}) => {
       </Text>
     </View>
   );
+
+  const charcard = ({item}) => {
+    const handlecharNav = () => {
+      if (item.type === 'Victor') {
+        navigation.navigate('Victor', {weapon: item});
+      } else if (item.type === 'Sniper') {
+        navigation.navigate('Sniper', {weapon: item});
+      }
+    };
+    return (
+      <TouchableOpacity onPress={handlecharNav}>
+        <View style={styles.charcardd}>
+        <Image
+          source={{uri: item.image}}
+          style={styles.charcard}
+          resizeMode="fill"
+        />
+      </View>
+      </TouchableOpacity>
+    );
+  };
+
   const weaponcard = ({item}) => {
     const handleNavigation = () => {
       if (item.type === 'Assault Rifle') {
@@ -44,8 +81,9 @@ const BgmiDashboard = ({navigation}) => {
         navigation.navigate('Sniper', {weapon: item});
       } else if (item.type === 'Pistol') {
         navigation.navigate('Pistol', {weapon: item});
+      } else if (item.type === 'Throwables') {
+        navigation.navigate('Throwables', {weapon: item});
       }
-
     };
     return (
       <TouchableOpacity onPress={handleNavigation}>
@@ -56,14 +94,18 @@ const BgmiDashboard = ({navigation}) => {
       </TouchableOpacity>
     );
   };
+
   const throwcard = ({item}) => (
     <View style={styles.wepcard}>
       <Image source={{uri: item.image}} style={styles.throwcardImage} />
       <Text style={styles.throwcardTitle}>{item.title}</Text>
     </View>
   );
+
   return (
-    <ScrollView style={{backgroundColor: '#121212'}}>
+    <ScrollView
+      style={{backgroundColor: '#121212'}}
+      contentContainerStyle={{flexGrow: 1}}>
       <SafeAreaView style={styles.container}>
         <View style={styles.searchContainer}>
           <TouchableOpacity>
@@ -76,6 +118,8 @@ const BgmiDashboard = ({navigation}) => {
             style={styles.searchInput}
             placeholder="Search"
             placeholderTextColor="#888"
+            onChangeText={setSearchText}
+            value={searchText}
           />
         </View>
 
@@ -84,62 +128,42 @@ const BgmiDashboard = ({navigation}) => {
           <Text style={styles.nameShaala}>Updates</Text>
         </View>
 
-        <View style={{height: '25%'}}>
-          <FlatList
-            data={newsData}
-            renderItem={newscard}
-            keyExtractor={item => item.id}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.flatListContainer}
-          />
-        </View>
+        <FlatList
+          data={filteredNewsData}
+          renderItem={newscard}
+          keyExtractor={item => item.id}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.flatListContainer}
+        />
 
         <View style={styles.weaponsTitleContainer}>
           <Text style={styles.name}>Weapon</Text>
           <Text style={styles.nameShaala}>s</Text>
         </View>
 
-        <View style={{height: '25%'}}>
-          <FlatList
-            data={weaponData}
-            renderItem={weaponcard}
-            keyExtractor={item => item.id}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.flatListContainer}
-          />
-        </View>
+        <FlatList
+          data={filteredWeaponData}
+          renderItem={weaponcard}
+          keyExtractor={item => item.id}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.flatListContainer}
+        />
+
         <View style={styles.weaponsTitleContainer}>
-          <Text style={styles.name}>Throwable</Text>
+          <Text style={styles.name}>Character</Text>
           <Text style={styles.nameShaala}>s</Text>
         </View>
 
-        <View style={{height: '25%'}}>
-          <FlatList
-            data={throwData}
-            renderItem={throwcard}
-            keyExtractor={item => item.id}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.flatListContainer}
-          />
-        </View>
-        <View style={styles.weaponsTitleContainer}>
-          <Text style={styles.name}>Throwable</Text>
-          <Text style={styles.nameShaala}>s</Text>
-        </View>
-
-        <View style={{height: '25%'}}>
-          <FlatList
-            data={throwData}
-            renderItem={throwcard}
-            keyExtractor={item => item.id}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.flatListContainer}
-          />
-        </View>
+        <FlatList
+          data={filteredCharacterData}
+          renderItem={charcard}
+          keyExtractor={item => item.id}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.charflatlist}
+        />
       </SafeAreaView>
     </ScrollView>
   );
@@ -176,7 +200,7 @@ const styles = StyleSheet.create({
   weaponsTitleContainer: {
     flexDirection: 'row',
     width: '95%',
-    marginBottom: 10, // Maintain spacing after the title
+    marginBottom: 10,
   },
   name: {
     color: 'white',
@@ -191,6 +215,10 @@ const styles = StyleSheet.create({
   flatListContainer: {
     paddingHorizontal: 5,
     height: 180,
+  },
+  charflatlist: {
+    paddingHorizontal: 5,
+    height: 200,
   },
   card: {
     width: 200,
@@ -256,6 +284,20 @@ const styles = StyleSheet.create({
     width: 140,
     height: 140,
     borderRadius: 10,
+  },
+  charcard: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 10,
+  },
+  charcardd: {
+    width: 120,
+    height: 200,
+    backgroundColor: '#1e1e1e',
+    borderRadius: 15,
+    padding: 0,
+    marginRight: 10,
+    alignItems: 'center',
   },
   throwcardTitle: {
     marginTop: 0,

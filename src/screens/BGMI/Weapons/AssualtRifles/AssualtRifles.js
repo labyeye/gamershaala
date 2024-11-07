@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -14,17 +14,32 @@ import data from '../../../../json/assaultrifle.json';
 
 const AssualtRifles = () => {
   const [assualtRifles, setAssualtRifles] = useState([]);
+  const [filteredRifles, setFilteredRifles] = useState([]);
+  const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
     setAssualtRifles(data);
+    setFilteredRifles(data);
   }, []);
 
-  const ascard = ({item}) => (
+  const handleSearch = (text) => {
+    setSearchText(text);
+    if (text) {
+      const filteredData = assualtRifles.filter((item) =>
+        item.details.toLowerCase().includes(text.toLowerCase())
+      );
+      setFilteredRifles(filteredData);
+    } else {
+      setFilteredRifles(assualtRifles);
+    }
+  };
+
+  const ascard = ({ item }) => (
     <View style={styles.card}>
-      <Image source={{uri: item.image}} style={styles.cardImage} />
-      <View style={{width:"60%"}}>
+      <Image source={{ uri: item.image }} style={styles.cardImage} />
+      <View style={{ width: '60%' }}>
         <Text style={styles.cardTitle}>{item.details}</Text>
-        <Text style={{color:"#FF6347",fontSize:11,marginTop:25}}>Get Details -></Text>
+        <Text style={{ color: '#FF6347', fontSize: 11, marginTop: 25 }}>Get Details -></Text>
       </View>
     </View>
   );
@@ -42,6 +57,8 @@ const AssualtRifles = () => {
           style={styles.searchInput}
           placeholder="Search"
           placeholderTextColor="#888"
+          value={searchText}
+          onChangeText={handleSearch}
         />
       </View>
 
@@ -52,9 +69,9 @@ const AssualtRifles = () => {
 
       <View style={styles.flatListWrapper}>
         <FlatList
-          data={assualtRifles}
+          data={filteredRifles}
           renderItem={ascard}
-          keyExtractor={item => item.id}
+          keyExtractor={(item) => item.id.toString()}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.flatListContainer}
         />
@@ -89,7 +106,7 @@ const styles = StyleSheet.create({
   weaponsTitleContainer: {
     flexDirection: 'row',
     width: '95%',
-    marginBottom: 10, 
+    marginBottom: 10,
   },
   name: {
     color: 'white',

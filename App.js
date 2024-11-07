@@ -7,6 +7,7 @@ import ChooseScreen from './src/screens/HOME/ChooseScreen';
 import BgmiDashboard from './src/screens/BGMI/BgmiDashboardScreen';
 import AssualtRifles from './src/screens/BGMI/Weapons/AssualtRifles/AssualtRifles';
 import Sniper from './src/screens/BGMI/Weapons/Sniper/Sniper';
+import Victor from './src/screens/BGMI/Characters/Victor';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +21,7 @@ const App = () => {
         <Stack.Screen name="BgmiDashboard" component={BgmiDashboard} options={{headerShown:false}} />
         <Stack.Screen name="AssualtRifles" component={AssualtRifles} options={{headerShown:false}} />
         <Stack.Screen name="Sniper" component={Sniper} options={{headerShown:false}} />
+        <Stack.Screen name="Victor" component={Victor} options={{headerShown:false}} />
 
 
       </Stack.Navigator>
