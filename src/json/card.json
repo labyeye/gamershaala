@@ -1,15 +1,20 @@
 [
-    {
-      "id": "1",
-      "title": "3.4 Update Podcast",
-      "date": "2024-09-18",
-      "image": "https://www.battlegroundsmobileindia.com/data/board/2/857/BGMI_Website_banner-RS-18-Sept.png"
-    },
-    {
-      "id": "2",
-      "title": "3.3 Podcast Update",
-      "date": "2024-07-17",
-      "image": "https://www.battlegroundsmobileindia.com/data/board/2/854/BGMI_Website_banner-RS-17-July-copy.png"
-    }
-  ]
-  
+  {
+    "id": "1",
+    "title": "3.5 Update",
+    "date": "2024-20-11",
+    "image": "https://www.battlegroundsmobileindia.com/data/board/2/866/image.png"
+  },
+  {
+    "id": "2",
+    "title": "3.4 Update Podcast",
+    "date": "2024-09-18",
+    "image": "https://www.battlegroundsmobileindia.com/data/board/2/857/BGMI_Website_banner-RS-18-Sept.png"
+  },
+  {
+    "id": "3",
+    "title": "3.3 Podcast Update",
+    "date": "2024-07-17",
+    "image": "https://www.battlegroundsmobileindia.com/data/board/2/854/BGMI_Website_banner-RS-17-July-copy.png"
+  }
+]

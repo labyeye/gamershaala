@@ -6,14 +6,16 @@ import {
   Text,
   TouchableOpacity,
   View,
+  useWindowDimensions
 } from 'react-native';
 const GetStarted = ({navigation}) => {
+  const {width, height} = useWindowDimensions();
   return (
     <SafeAreaView style={styles.container}>
       <View
         style={{
-          width: '90%',
-          height: '10%',
+          width: (width > 700 ) ? 500 : 350,
+          height: (height > 700 ) ? 80 : 80,
         }}>
         <Text style={styles.name}>Personalised</Text>
         <View style={styles.titleContainer}>
@@ -23,27 +25,33 @@ const GetStarted = ({navigation}) => {
       </View>
       <View
         style={{
-          width: '100%',
-          height: '100%',
-          alignItems: 'center',
+          width: (width > 700 ) ? 500 : 300,
+          height: (height > 700 ) ? 600 : 460,
           justifyContent: 'center',
-          marginTop: 70,
+          alignItems: 'flex-end',
         }}>
         <Image
-          style={{width: '100%', height: '100%'}}
-          resizeMode="fill"
+          style={{width: (width > 600 ) ? 500 : 750, height: (height > 600 ? 400 : 100), alignSelf: 'center',justifyContent: 'center'}}
           source={require('../../assets/images/phone.png')}
         />
+      </View>
+      <View
+        style={{
+          width: '100%',
+          height: '90%',
+          alignItems: 'flex-end',
+        }}>
+       
         <TouchableOpacity
           style={{
-            height: '11%',
-            width: '21%',
-            alignSelf: 'flex-end',
-            marginBottom: 300,
-          }} onPress={() => {
-            navigation.navigate('ChooseScreen')
+            height: (height > 700 ) ? 80 : 80,
+            width: (width > 700 ) ? 100 : 80,
+            justifyContent: 'flex-end',
+            position: 'absolute',
+          }}
+          onPress={() => {
+            navigation.navigate('ChooseScreen');
           }}>
-          
           <Image
             style={{width: '70%', height: '70%'}}
             source={require('../../assets/images/button.png')}
