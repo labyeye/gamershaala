@@ -1,0 +1,66 @@
+[
+    {
+      "id": "1",
+      "title": "M416",
+      "details":"The HK416, (referred to as the M416 in-game) is an assault rifle/carbine type weapon in BATTLEGROUNDS.The HK416 is a German Assault Rifle. ",
+      "image": "https://static.wikia.nocookie.net/pubgmobile/images/8/88/Icon_M416.png/revision/latest?cb=20180905095227"
+     
+    },
+    {
+      "id": "2",
+      "title": "AKM",
+      "details":"The AKM is an assault rifle type weapon in BATTLEGROUNDS. The AKM is an improved version of another popular weapon, the AK-47. ",
+      "image": "https://static.wikia.nocookie.net/pubgmobile/images/a/a0/Icon_AKM.png/revision/latest?cb=20180807211903"
+      
+    },
+    {
+      "id": "3",
+      "title": "SCAR-L",
+        "details":"The SCAR-L is an assault rifle type weapon in BATTLEGROUNDS. The SCAR-L is a very versatile weapon that can be used in a variety of situations. ",
+      "image": "https://static.wikia.nocookie.net/pubgmobile/images/4/47/Icon_SCAR-L.png/revision/latest?cb=20180905095337"
+    },
+    {
+        "id": "4",
+        "title": "M16A4",
+        "details":"The M16A4 is an assault rifle type weapon in BATTLEGROUNDS. The M16A4 is a versatile weapon that can be used in a variety of situations. ",
+        "image": "https://static.wikia.nocookie.net/pubgmobile/images/b/b2/Icon_M16A4.png/revision/latest?cb=20180905095208"
+    },
+    {
+        "id": "5",
+        "title": "GROZA",
+        "details":"The Groza is an assault rifle type weapon in BATTLEGROUNDS. The Groza is a very powerful weapon that can be used in a variety of situations. ",
+        "image": "https://static.wikia.nocookie.net/pubgmobile/images/0/0a/Icon_Groza.png/revision/latest?cb=20180905095036"
+    },
+    {
+        "id": "6",
+        "title": "AUG A3",
+        "details":"The AUG A3 is an assault rifle type weapon in BATTLEGROUNDS. The AUG A3 is a very versatile weapon that can be used in a variety of situations. ",
+        "image": "https://static.wikia.nocookie.net/pubgmobile/images/1/12/AUG_A3.png/revision/latest?cb=20200610095452"
+    },
+    {
+        "id": "7",
+        "title": "QBZ95",
+        "details":"The QBZ95 is an assault rifle type weapon in BATTLEGROUNDS. The QBZ95 is a very versatile weapon that can be used in a variety of situations. ",
+        "image": "https://static.wikia.nocookie.net/pubgmobile/images/5/52/QBZ.png/revision/latest?cb=20200607024012"
+    },
+    {
+        "id": "8",
+        "title": "Beryl M762",
+        "details":"The Beryl M762 is an assault rifle type weapon in BATTLEGROUNDS. The Beryl M762 is a very versatile weapon that can be used in a variety of situations. ",
+        "image": "https://static.wikia.nocookie.net/pubgmobile/images/1/1c/Beryl_M762.png/revision/latest?cb=20200607024103"
+    },
+    {
+        "id": "9",
+        "title": "MK47 Mutant",
+        "details":"The MK47 Mutant is an assault rifle type weapon in BATTLEGROUNDS. The MK47 Mutant is a very versatile weapon that can be used in a variety of situations. ",
+        "image": "https://static.wikia.nocookie.net/pubgmobile/images/e/e9/Mk47_Mutant.png/revision/latest?cb=20200607023938"
+    },
+    {
+        "id": "10",
+        "title": "G36C",
+        "details":"The G36C is an assault rifle type weapon in BATTLEGROUNDS. The G36C is a very versatile weapon that can be used in a variety of situations.",
+        "image": "https://static.wikia.nocookie.net/pubgmobile/images/0/05/G36C.png/revision/latest?cb=20200607024045"
+    }
+    
+  ]
+  

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "title": "Victor",
+    "image": "https://i.pinimg.com/1200x/d6/df/59/d6df59f84351d2fc4205f28364c9d606.jpg",
+    "type": "Victor"
+  },
+  {
+    "id": "2",
+    "title": "Carlo",
+    "image": "https://i.pinimg.com/736x/82/bd/6a/82bd6a55313922497284627b8dfae6c7.jpg"
+  },
+  {
+    "id": "3",
+    "title": "Andy",
+    "image": "https://e1.pxfuel.com/desktop-wallpaper/698/551/desktop-wallpaper-pubg-character-andy.jpg"
+  },
+  {
+    "id": "4",
+    "title": "Sara",
+    "image": "https://i.pinimg.com/originals/83/72/7e/83727e973f5f53e2c370689bfaaa4db5.jpg"
+  }
+]

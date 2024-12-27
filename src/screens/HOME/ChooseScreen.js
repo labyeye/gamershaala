@@ -23,9 +23,9 @@ const ChooseScreen = ({navigation}) => {
     },
     {
       id: '2',
-      title: '(Coming Soon)',
+      title: '',
       image: require('../../assets/images/valocard.jpg'),
-      onPress: () => {}, // No action for now
+      onPress: () => navigation.navigate('ValoDashBoard'), // No action for now
     },
   ];
   const renderItem = ({item}) => (

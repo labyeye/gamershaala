@@ -1,0 +1,28 @@
+[
+    {
+      "id": "1",
+      "title": "Classic",
+      "image": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/bfa273477b5ce6345c00da5a396281bd51830dc8-680x384.png?auto=format&fit=fill&q=80&w=680",
+      "type": "Assault Rifle"
+    },
+    {
+      "id": "2",
+      "title": "Frenzy",
+      "image": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/10c955e82728dbcc4f7edd687be251437b3c8acc-680x384.png?auto=format&fit=fill&q=80&w=680",
+      "type": "Sniper"
+    },
+    {
+      "id": "3",
+      "title": "Sheriff",
+      "image": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/37efa958bf1dd8ec57a0b1585e741599c7b7bee7-680x383.png?auto=format&fit=fill&q=80&w=680"
+    },
+    {
+      "id": "4",
+      "title": "View More",
+      "image": "https://cdn-icons-png.flaticon.com/256/3916/3916800.png",
+      "type": "Throwables"
+
+    }
+
+  ]
+  
